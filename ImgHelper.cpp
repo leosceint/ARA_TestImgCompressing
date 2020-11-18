@@ -29,12 +29,12 @@ void ImgHelper::MakeOrClearDirectory(const string& path)
 		{
 			filesystem::remove(path);
 		}
-		cout << "<Directory> " << path << " was cleared !!! " << endl;
+		cout << "<Directory> \"" << path << "\" was cleared !!! " << endl;
 	}
 	else
 	{
 		filesystem::create_directory(path);
-		cout << "<Directory> " << path << " was created !!! " << endl;
+		cout << "<Directory> \"" << path << "\" was created !!! " << endl;
 	}
 }
 
