@@ -3,12 +3,14 @@
 vector<filesystem::path> ImgHelper::MakePathList(const string& path)
 {
 	vector<filesystem::path> PathList;
-
-	for (auto elem : filesystem::directory_iterator(path))
+	
+	if (filesystem::exists(path) && filesystem::is_directory(path))
 	{
-		PathList.push_back(elem.path());
+		for (auto elem : filesystem::directory_iterator(path))
+		{
+			PathList.push_back(elem.path());
+		}
 	}
-
 	return PathList;
 }
 
