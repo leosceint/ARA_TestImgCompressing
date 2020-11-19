@@ -68,3 +68,12 @@ void ImgHelper::SaveData(const string& path, const char* buffer, const size_t bu
 	f_out.close();
 	cout << "Write to File \"" << path << "\" " << endl;
 }
+
+void ImgHelper::SaveData(const string& path, const string& buffer)
+{
+	ofstream f_out;
+	f_out.open(path, ofstream::binary);
+	f_out << buffer;
+	f_out.close();
+	cout << "Write to File \"" << path << "\" " << endl;
+}

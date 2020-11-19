@@ -364,3 +364,6 @@ FodyWeavers.xsd
 #
 CompressedImages/
 *.png
+*.tga
+*.jpg
+*.bmp

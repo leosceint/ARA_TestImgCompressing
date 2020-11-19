@@ -22,6 +22,8 @@ public:
 
 	static void SaveData(const string& path, const char* buffer, const size_t buffer_size);
 
+	static void SaveData(const string& path, const string& buffer);
+
 private:
 	ImgHelper() {};
 	~ImgHelper() {};
