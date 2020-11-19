@@ -21,11 +21,10 @@ void zstd_test(vector<filesystem::path>& PathList, const string& PathOfCompresse
 	ZSTD_CCtx* zstd_compression_context = ZSTD_createCCtx();
 
 	unsigned int counter = 0;
-	chrono::steady_clock::time_point t_old_fps;
 
 	for (vector<filesystem::path>::iterator iter = PathList.begin(); iter != PathList.end(); ++iter)
 	{
-		if (counter < 10)
+		if (counter < 5)
 		{
 			if (ImgHelper::ReadImgAsArray(*iter, img))
 			{
@@ -39,6 +38,8 @@ void zstd_test(vector<filesystem::path>& PathList, const string& PathOfCompresse
 			cout << endl << "Counter --> " << counter << endl;
 			unsigned int file_number = 0;
 			list<string>::iterator name_list_iter = NamesList.begin();
+			auto t_old_fps = chrono::steady_clock::now();
+
 			for (list<vector<char>>::iterator list_iter = ImgsList.begin(); list_iter != ImgsList.end(); ++list_iter)
 			{
 				size_t src_size = list_iter->size();
