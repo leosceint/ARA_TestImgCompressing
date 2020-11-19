@@ -144,6 +144,9 @@
   <ItemGroup>
     <ClCompile Include="ImgHelper.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="test_lz4.cpp" />
+    <ClCompile Include="test_snappy.cpp" />
+    <ClCompile Include="test_zstd.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ImgHelper.h" />
