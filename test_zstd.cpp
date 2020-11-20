@@ -10,10 +10,10 @@
 
 #include "zstd.h"
 
-void compression(ZSTD_CCtx* zstd_compression_context, list<vector<char>>& Imgs, list<string>& Names, const string& PathOfCompressed, const string& FileExtension);
+void compression_zstd(ZSTD_CCtx* zstd_compression_context, list<vector<char>>& Imgs, list<string>& Names, const string& PathOfCompressed, const string& FileExtension);
 
 
-void zstd_test(vector<filesystem::path>& PathList, const string& PathOfCompressed, const string& FileExtension, const unsigned int segmentation)
+void zstd_test(vector<filesystem::path>& PathList, const string& PathOfCompressed, const unsigned int segmentation, const string& FileExtension)
 {
 	cout << endl << "-== Zstandart test start ==-" << endl;
 	
@@ -39,7 +39,7 @@ void zstd_test(vector<filesystem::path>& PathList, const string& PathOfCompresse
 		else
 		{
 			cout << endl << "Counter --> " << counter << endl;
-			compression(zstd_compression_context, ImgsList, NamesList, PathOfCompressed, FileExtension);
+			compression_zstd(zstd_compression_context, ImgsList, NamesList, PathOfCompressed, FileExtension);
 
 			counter = 0;
 			ImgsList.clear();
@@ -51,7 +51,7 @@ void zstd_test(vector<filesystem::path>& PathList, const string& PathOfCompresse
 	if (ImgsList.size())
 	{
 		cout << endl << "Counter --> " << counter << endl;
-		compression(zstd_compression_context, ImgsList, NamesList, PathOfCompressed, FileExtension);
+		compression_zstd(zstd_compression_context, ImgsList, NamesList, PathOfCompressed, FileExtension);
 	}
 
 	ZSTD_freeCCtx(zstd_compression_context);
@@ -59,7 +59,7 @@ void zstd_test(vector<filesystem::path>& PathList, const string& PathOfCompresse
 	NamesList.clear();
 }
 
-void compression(ZSTD_CCtx* zstd_compression_context, list<vector<char>>& Imgs, list<string>& Names, const string& PathOfCompressed, const string& FileExtension)
+void compression_zstd(ZSTD_CCtx* zstd_compression_context, list<vector<char>>& Imgs, list<string>& Names, const string& PathOfCompressed, const string& FileExtension)
 {
 	unsigned int file_number = 0;
 	list<string>::iterator name_list_iter = Names.begin();

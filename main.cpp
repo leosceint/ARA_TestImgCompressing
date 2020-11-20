@@ -7,11 +7,11 @@
 
 using namespace std;
 
-void zstd_test(vector<filesystem::path>& PathList, const string& PathOfCompressed, const string& FileExtension=".zst", const unsigned int segmentation=5);
+void zstd_test(vector<filesystem::path>& PathList, const string& PathOfCompressed, const unsigned int segmentation = 5, const string& FileExtension=".zst");
 
-void lz4_test_def(vector<filesystem::path>& PathList, const string& PathOfCompressed, const string& FileExtension = ".lz4");
+void lz4_test_def(vector<filesystem::path>& PathList, const string& PathOfCompressed, const unsigned int segmentation = 5, const string& FileExtension = ".lz4");
 
-void lz4_test_hc(vector<filesystem::path>& PathList, const string& PathOfCompressed, const string& FileExtension = ".lz4");
+void lz4_test_hc(vector<filesystem::path>& PathList, const string& PathOfCompressed, const unsigned int segmentation = 5, const string& FileExtension = ".lz4");
 
 void snappy_test(vector<filesystem::path>& PathList, const string& PathOfCompressed, const string& FileExtension = ".sz");
 
@@ -52,11 +52,11 @@ int main(int argc, char* argv[])
 	ImgHelper::MakeOrClearDirectory(path_CompressedImages);
 
 	if (compressed_Algorithm == "zstd")
-		zstd_test(ImgsPathList, path_CompressedImages);
+		zstd_test(ImgsPathList, path_CompressedImages, ImgsPathList.size());
 	else if (compressed_Algorithm == "lz4_def" || compressed_Algorithm == "lz4")
-		lz4_test_def(ImgsPathList, path_CompressedImages);
+		lz4_test_def(ImgsPathList, path_CompressedImages, ImgsPathList.size());
 	else if (compressed_Algorithm == "lz4_hc")
-		lz4_test_hc(ImgsPathList, path_CompressedImages);
+		lz4_test_hc(ImgsPathList, path_CompressedImages, ImgsPathList.size());
 	else if (compressed_Algorithm == "snappy")
 		snappy_test(ImgsPathList, path_CompressedImages);
 	else
