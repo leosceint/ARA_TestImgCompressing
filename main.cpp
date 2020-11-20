@@ -13,7 +13,7 @@ void lz4_test_def(vector<filesystem::path>& PathList, const string& PathOfCompre
 
 void lz4_test_hc(vector<filesystem::path>& PathList, const string& PathOfCompressed, const unsigned int segmentation = 5, const string& FileExtension = ".lz4");
 
-void snappy_test(vector<filesystem::path>& PathList, const string& PathOfCompressed, const string& FileExtension = ".sz");
+void snappy_test(vector<filesystem::path>& PathList, const string& PathOfCompressed, const unsigned int segmentation = 5, const string& FileExtension = ".sz");
 
 int main(int argc, char* argv[])
 {
@@ -58,7 +58,7 @@ int main(int argc, char* argv[])
 	else if (compressed_Algorithm == "lz4_hc")
 		lz4_test_hc(ImgsPathList, path_CompressedImages, ImgsPathList.size());
 	else if (compressed_Algorithm == "snappy")
-		snappy_test(ImgsPathList, path_CompressedImages);
+		snappy_test(ImgsPathList, path_CompressedImages, ImgsPathList.size());
 	else
 		cout << "Unknown Algorithm!!! " << endl;
 	
