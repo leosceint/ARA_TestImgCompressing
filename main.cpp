@@ -7,7 +7,7 @@
 
 using namespace std;
 
-void zstd_test(vector<filesystem::path>& PathList, const string& PathOfCompressed, const string& FileExtension=".zst");
+void zstd_test(vector<filesystem::path>& PathList, const string& PathOfCompressed, const string& FileExtension=".zst", const unsigned int segmentation=5);
 
 void lz4_test_def(vector<filesystem::path>& PathList, const string& PathOfCompressed, const string& FileExtension = ".lz4");
 
