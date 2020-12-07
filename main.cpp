@@ -52,13 +52,13 @@ int main(int argc, char* argv[])
 	ImgHelper::MakeOrClearDirectory(path_CompressedImages);
 
 	if (compressed_Algorithm == "zstd")
-		zstd_test(ImgsPathList, path_CompressedImages, ImgsPathList.size());
+		zstd_test(ImgsPathList, path_CompressedImages, static_cast<unsigned int>(ImgsPathList.size()));
 	else if (compressed_Algorithm == "lz4_def" || compressed_Algorithm == "lz4")
-		lz4_test_def(ImgsPathList, path_CompressedImages, ImgsPathList.size());
+		lz4_test_def(ImgsPathList, path_CompressedImages, static_cast<unsigned int>(ImgsPathList.size()));
 	else if (compressed_Algorithm == "lz4_hc")
-		lz4_test_hc(ImgsPathList, path_CompressedImages, ImgsPathList.size());
+		lz4_test_hc(ImgsPathList, path_CompressedImages, static_cast<unsigned int>(ImgsPathList.size()));
 	else if (compressed_Algorithm == "snappy")
-		snappy_test(ImgsPathList, path_CompressedImages, ImgsPathList.size());
+		snappy_test(ImgsPathList, path_CompressedImages, static_cast<unsigned int>(ImgsPathList.size()));
 	else
 		cout << "Unknown Algorithm!!! " << endl;
 	

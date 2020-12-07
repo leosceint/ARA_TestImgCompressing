@@ -34,6 +34,7 @@ void zstd_test(vector<filesystem::path>& PathList, const string& PathOfCompresse
 				ImgsList.push_back(img);
 				NamesList.push_back((iter->filename()).string());
 				++counter;
+				cout << "#" << counter << endl;
 			}
 		}
 		else
