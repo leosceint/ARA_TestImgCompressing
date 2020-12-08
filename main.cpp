@@ -54,11 +54,11 @@ int main(int argc, char* argv[])
 	if (compressed_Algorithm == "zstd")
 		zstd_test(ImgsPathList, path_CompressedImages, 3);//static_cast<unsigned int>(ImgsPathList.size()));
 	else if (compressed_Algorithm == "lz4_def" || compressed_Algorithm == "lz4")
-		lz4_test_def(ImgsPathList, path_CompressedImages, static_cast<unsigned int>(ImgsPathList.size()));
+		lz4_test_def(ImgsPathList, path_CompressedImages, 3);//static_cast<unsigned int>(ImgsPathList.size()));
 	else if (compressed_Algorithm == "lz4_hc")
-		lz4_test_hc(ImgsPathList, path_CompressedImages, static_cast<unsigned int>(ImgsPathList.size()));
+		lz4_test_hc(ImgsPathList, path_CompressedImages, 3);//static_cast<unsigned int>(ImgsPathList.size()));
 	else if (compressed_Algorithm == "snappy")
-		snappy_test(ImgsPathList, path_CompressedImages, static_cast<unsigned int>(ImgsPathList.size()));
+		snappy_test(ImgsPathList, path_CompressedImages, 6);//static_cast<unsigned int>(ImgsPathList.size()));
 	else
 		cout << "Unknown Algorithm!!! " << endl;
 	
