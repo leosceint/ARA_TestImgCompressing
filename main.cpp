@@ -52,7 +52,7 @@ int main(int argc, char* argv[])
 	ImgHelper::MakeOrClearDirectory(path_CompressedImages);
 
 	if (compressed_Algorithm == "zstd")
-		zstd_test(ImgsPathList, path_CompressedImages, static_cast<unsigned int>(ImgsPathList.size()));
+		zstd_test(ImgsPathList, path_CompressedImages, 3);//static_cast<unsigned int>(ImgsPathList.size()));
 	else if (compressed_Algorithm == "lz4_def" || compressed_Algorithm == "lz4")
 		lz4_test_def(ImgsPathList, path_CompressedImages, static_cast<unsigned int>(ImgsPathList.size()));
 	else if (compressed_Algorithm == "lz4_hc")

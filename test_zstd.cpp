@@ -65,6 +65,8 @@ void compression_zstd(ZSTD_CCtx* zstd_compression_context, list<vector<char>>& I
 	unsigned int file_number = 0;
 	list<string>::iterator name_list_iter = Names.begin();
 	auto t_old_fps = chrono::steady_clock::now();
+	auto t_1_avr_fps = t_old_fps;
+	chrono::steady_clock::time_point t_2_avr_fps;
 
 	for (list<vector<char>>::iterator list_iter = Imgs.begin(); list_iter != Imgs.end(); ++list_iter)
 	{
@@ -82,6 +84,7 @@ void compression_zstd(ZSTD_CCtx* zstd_compression_context, list<vector<char>>& I
 		auto delta_fps = chrono::duration_cast<chrono::milliseconds>(t_new_fps - t_old_fps);
 		float fps = 1000 / static_cast<float>(delta_fps.count());
 		t_old_fps = t_new_fps;
+		t_2_avr_fps = t_new_fps;
 		src = nullptr;
 
 		if (!ZSTD_isError(size_status))
@@ -109,4 +112,7 @@ void compression_zstd(ZSTD_CCtx* zstd_compression_context, list<vector<char>>& I
 		delete[] dst;
 		delete[] src;
 	}
+
+	float delta_avr_s = chrono::duration_cast<chrono::milliseconds>(t_2_avr_fps - t_1_avr_fps).count() / 1000.0f;
+	cout << endl << "<Average in time FPS> : " << file_number / delta_avr_s << endl;
 }
